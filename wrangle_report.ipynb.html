@@ -1,0 +1,77 @@
+<html>
+<head>
+<title>wrangle_report.ipynb</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #808080;}
+.s1 { color: #a9b7c6;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+wrangle_report.ipynb</font>
+</center></td></tr></table>
+<pre><span class="s0">#%% md 
+</span><span class="s1">## Reporting: Wrangling Report 
+ 
+This report gives a step by step explanation of process carried out while cleaning the data given to us. The dataset provided by Udacity was used while working on this project. I imported the dataset using the pandas read_csv and read_json function. I also accessed the data virtually by scrolling through the data provided. 
+Afterwards, I moved on to access the data programmatically by using the pandas head, info, describe and duplicated function. I also made sure to check for missing values using the pandas isnull and sum function. 
+After access the function, I came up with the following quality and tidiness issues: 
+ 
+### Quality issues 
+ 
+#### Archived Tweets 
+##### 1. Missing Values 
+ 
+Missing values are present in the following columns: 
+ 
+* in_reply_to_status_id 
+ 
+* in_reply_to_user_id 
+ 
+* retweeted_status_id 
+ 
+* retweeted_status_user_id 
+ 
+* retweeted_status_timestamp 
+ 
+##### 2. Validity Error. 
+* The rating_numerator are sometimes above the rating_denominator column. 
+ 
+* Some dogs where without name 
+ 
+#### Predicted Images with Neural Network. 
+ 
+* Some Images were not Dogs. 
+ 
+#### Twitter API json file. 
+##### 3. Missing Values 
+Missing values present in the following columns: 
+ 
+* in_reply_to_status_id 
+ 
+* in_reply_to_status_id_str 
+ 
+* in_reply_to_user_id 
+ 
+* in_reply_to_user_id_str 
+ 
+* in_reply_to_screen_time 
+ 
+* geo 
+ 
+* coordinates 
+ 
+ 
+### Tidiness issues 
+* The columns converted to strings still has an integer datatype. 
+* The data included tweets that were retweeted, and not originally owned by the page. 
+</span><span class="s0">#%% md 
+</span><span class="s1">In solving the listed issues, I started with dropping the columns with a large number of missing values from the twitter_archived data and tweet_json dataset. Columns like the in_reply_to_status_id, in_reply_to_user_id, retweeted_status_id, retweeted_status_user_id, retweeted_status_timestamp and expanded_urls. I dropped off these columns since filling up this would only lead to inaccurate and inappropriate data being added to the data. 
+</span><span class="s0">#%% md 
+</span><span class="s1">Also for some columns present have a wrong datatype. I changed the datatype of this column to the right datatype. 
+I then merged the dataset together using the pandas merge function. Then, I saved the final output of the dataset to twitter_archive_master.csv file which can be seen in the under the Github repository.</span></pre>
+</body>
+</html>
